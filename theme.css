@@ -1,0 +1,1140 @@
+/* =========================================================
+   IndiaMedCare — shared dark-mode + theme toggle stylesheet
+   Loaded AFTER each page's inline <style> block so .dark-mode
+   overrides win the cascade. Provides:
+     1) dark-mode rewires of the existing --gray-* CSS vars
+     2) common-component dark-mode overrides (headers/cards)
+     3) the .theme-toggle-btn floating circular button
+   ========================================================= */
+
+/* ===== Dark-mode rewires — auto-cascade to existing var(--gray-*) users ===== */
+.dark-mode {
+  --gray-50: #111A16;
+  --gray-100: #18241F;
+  --gray-200: #24332C;
+  --gray-300: #314439;
+  --gray-400: #4B5F55;
+  --gray-500: #8FA39A;
+  --gray-600: #C7D6CE;
+  --gray-700: #E2EDE7;
+  --gray-800: #F1F7F4;
+  --gray-900: #FAFCFB;
+  color-scheme: dark;
+}
+
+/* ===== Global element cascades ===== */
+.dark-mode body,
+.dark-mode main,
+.dark-mode .page-wrap,
+.dark-mode .container,
+.dark-mode .wrapper {
+  color: var(--gray-800);
+}
+
+.dark-mode body { background: #101814; }
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+  color: var(--gray-900);
+}
+
+.dark-mode p, .dark-mode li, .dark-mode span, .dark-mode label, .dark-mode dt, .dark-mode dd {
+  color: var(--gray-700);
+}
+
+.dark-mode a { color: #86EFAC; }
+.dark-mode a:hover { color: #BBF7D0; }
+
+.dark-mode hr { border-color: rgba(255,255,255,0.08); }
+
+/* ===== Light pharma polish — mild green + white storefront ===== */
+:root {
+  --gold: #16A34A;
+  --gold-dark: #15803D;
+  --gold-light: rgba(22, 163, 74, 0.10);
+  --gold-glow: 0 8px 30px rgba(22, 163, 74, 0.25);
+  --shadow: 0 4px 20px rgba(16, 60, 40, 0.08);
+  --shadow-lg: 0 20px 60px rgba(16, 60, 40, 0.12);
+  --glass-dark: rgba(255, 255, 255, 0.92);
+}
+
+html:not(.dark-mode) body { background: #FBFDFC; color: #1D3529; }
+html:not(.dark-mode) .logo-subtext { color: #12A160; }
+html:not(.dark-mode) .search-toggle,
+html:not(.dark-mode) .mobile-toggle,
+html:not(.dark-mode) .header-icon,
+html:not(.dark-mode) .close-nav { color: #1D3529; background: rgba(13, 82, 53, 0.06); }
+html:not(.dark-mode) .desktop-nav-links a { color: #2B4137; }
+html:not(.dark-mode) .desktop-nav-links a:hover { color: #15803D; }
+html:not(.dark-mode) .btn-primary,
+html:not(.dark-mode) [class*="btn-primary"] { border-radius: 12px; padding: 14px 34px; }
+html:not(.dark-mode) .hero-showcase,
+html:not(.dark-mode) .hero { border-radius: 22px; }
+html:not(.dark-mode) .product-card { border-radius: 18px; overflow: hidden; }
+html:not(.dark-mode) .section-header h2 { letter-spacing: -0.02em; }
+
+html:not(.dark-mode) .section { padding-top: clamp(3.5rem, 6vw, 5.25rem); padding-bottom: clamp(3.5rem, 6vw, 5.25rem); }
+html:not(.dark-mode) .section-header { margin-bottom: 3.25rem; }
+html:not(.dark-mode) .products-grid { gap: 1.75rem; }
+html:not(.dark-mode) .trust-grid { gap: 1rem; }
+html:not(.dark-mode) .trust-item { border-radius: 16px; }
+html:not(.dark-mode) .brand-story,
+html:not(.dark-mode) .testimonials-section,
+html:not(.dark-mode) .newsletter-section { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+
+/* ===== Common component overrides (header / cards / forms / buttons) ===== */
+.dark-mode header,
+.dark-mode .header,
+.dark-mode .mobile-header,
+.dark-mode .site-header,
+.dark-mode nav,
+.dark-mode .navbar,
+.dark-mode [class*="header"]:not(.theme-toggle-btn) {
+  background: rgba(17,26,22,0.92) !important;
+  backdrop-filter: blur(10px);
+  border-bottom-color: rgba(255,255,255,0.07) !important;
+}
+
+.dark-mode footer,
+.dark-mode .footer,
+.dark-mode [class*="footer"] {
+  background: #0B1411 !important;
+  color: var(--gray-700) !important;
+  border-top-color: rgba(255,255,255,0.06);
+}
+
+.dark-mode .product-card,
+.dark-mode .card,
+.dark-mode .cart-card,
+.dark-mode [class*="-card"]:not(.theme-toggle-btn):not(.product-badge) {
+  background: #1e293b !important;
+  color: var(--gray-800) !important;
+  border-color: rgba(255,255,255,0.08) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important;
+}
+
+.dark-mode .product-card:hover,
+.dark-mode .card:hover {
+  border-color: rgba(22, 163, 74,0.45) !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 0 1px rgba(22, 163, 74,0.18) !important;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select,
+.dark-mode .form-control,
+.dark-mode [class*="input"],
+.dark-mode [class*="form-control"] {
+  background: #1e293b !important;
+  color: var(--gray-800) !important;
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: var(--gray-500) !important;
+}
+
+.dark-mode .btn-secondary,
+.dark-mode [class*="btn-secondary"],
+.dark-mode [class*="header-action"] {
+  background: #1e293b !important;
+  border-color: rgba(255,255,255,0.12) !important;
+  color: var(--gray-800) !important;
+}
+
+.dark-mode .btn-primary {
+  background: linear-gradient(135deg, #16A34A 0%, #15803D 100%) !important;
+  color: #ffffff !important;
+}
+
+.dark-mode .modal-content,
+.dark-mode .modal,
+.dark-mode [class*="modal-"] {
+  background: #1e293b !important;
+  color: var(--gray-800) !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}
+
+.dark-mode .text-gray-500, .dark-mode .text-muted { color: var(--gray-500) !important; }
+.dark-mode .text-gray-700, .dark-mode .text-dark { color: var(--gray-700) !important; }
+.dark-mode .text-gray-900 { color: var(--gray-900) !important; }
+.dark-mode .bg-white { background: #1e293b !important; }
+.dark-mode .bg-gray-50 { background: #0f172a !important; }
+.dark-mode .bg-gray-100 { background: #1e293b !important; }
+
+/* Subtle accent glow on hover for interactive elements */
+.dark-mode a:hover, .dark-mode button:hover, .dark-mode .clickable:hover {
+  text-shadow: 0 0 8px rgba(22, 163, 74,0.18);
+}
+
+/* ===== Floating circular theme toggle (bottom-LEFT, away from .back-to-top bottom-right) ===== */
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9980;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(15,23,42,0.18), 0 2px 6px rgba(15,23,42,0.08);
+  transition: transform 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55), background 0.35s ease, color 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  font-size: 0.95rem;
+  -webkit-tap-highlight-color: transparent;
+}
+.theme-toggle-btn:hover {
+  transform: scale(1.12) rotate(18deg);
+  background: linear-gradient(135deg, #15803D 0%, #8B5CF6 100%);
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.4);
+  box-shadow: 0 10px 28px rgba(99,102,241,0.45), 0 0 0 1px rgba(22, 163, 74,0.3);
+}
+.theme-toggle-btn:active { transform: scale(0.95); }
+.theme-toggle-btn svg { transition: transform 0.5s ease, opacity 0.3s ease; }
+.theme-toggle-btn .sun-icon { display: inline-block; }
+.theme-toggle-btn .moon-icon { display: none; }
+.dark-mode .theme-toggle-btn { background: #1e293b; color: #86EFAC; border-color: rgba(255,255,255,0.08); }
+.dark-mode .theme-toggle-btn .sun-icon { display: none; }
+.dark-mode .theme-toggle-btn .moon-icon { display: inline-block; }
+.dark-mode .theme-toggle-btn:hover { box-shadow: 0 10px 28px rgba(22, 163, 74,0.55), 0 0 0 1px rgba(165,180,252,0.5); }
+.dark-mode .theme-toggle-btn:hover svg { transform: rotate(-18deg); }
+
+/* On mobile, push up so it doesn't collide with .back-to-top (bottom-right) or chat-fab */
+@media (max-width: 640px) {
+  .theme-toggle-btn { left: 16px; bottom: 92px; width: 2.4rem; height: 2.4rem; font-size: 0.85rem; }
+}
+
+/* Smooth theme swap transition for the whole document */
+html { transition: background-color 0.35s ease, color 0.35s ease; }
+body, header, footer, .card, .product-card, [class*="-card"], input, textarea, select, button { transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}
+
+/* ===== Visually hidden helper for screen-reader announcements =====
+   Kept in the DOM tree but invisible to sighted users. WCAG-friendly. */
+.sr-only{
+  position:absolute !important;
+  width:1px !important; height:1px !important;
+  padding:0 !important; margin:-1px !important;
+  overflow:hidden !important; clip:rect(0,0,0,0) !important;
+  white-space:nowrap !important; border:0 !important;
+}
+
+/* ============================================================================
+   IndiaMedCare STOREFRONT v2 — unified design layer (light theme)
+   Loaded last on every storefront page. Fixes contrast problems in the
+   inherited theme and gives the site a consistent, airy pharmacy look:
+   ink-on-white type, emerald accents, soft mint bands, real card surfaces.
+   ============================================================================ */
+
+:root {
+  --ink: #0E2A1E;
+  --ink-soft: #35493F;
+  --muted: #5B7267;
+  --line: #E3EEE8;
+  --page: #F7FBF8;
+  --band: #F2F9F5;
+  --surface: #FFFFFF;
+  --green-600: #12A85A;
+  --green-700: #0B7A3B;
+  --green-050: #EAF7EF;
+  --radius-card: 18px;
+  --shadow-card: 0 1px 2px rgba(11, 59, 46, 0.04), 0 10px 30px rgba(11, 59, 46, 0.06);
+  --shadow-card-hover: 0 2px 6px rgba(11, 59, 46, 0.06), 0 22px 48px rgba(11, 59, 46, 0.12);
+}
+
+/* ---------- Base ---------- */
+html:not(.dark-mode) body {
+  background:
+    radial-gradient(1200px 420px at 50% -180px, #E9F6EF 0%, rgba(233, 246, 239, 0) 70%),
+    var(--page);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html:not(.dark-mode) h1,
+html:not(.dark-mode) h2,
+html:not(.dark-mode) h3,
+html:not(.dark-mode) h4 {
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+
+html:not(.dark-mode) p { color: var(--ink-soft); }
+
+html:not(.dark-mode) .container { width: 100%; }
+
+/* Content must never stay invisible if the scroll-reveal script fails. */
+.reveal,
+.reveal.visible { opacity: 1 !important; transform: none !important; }
+
+/* ---------- Header ---------- */
+html:not(.dark-mode) .nav-bar {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line) !important;
+  box-shadow: 0 1px 0 rgba(11, 59, 46, 0.04), 0 10px 24px rgba(11, 59, 46, 0.05);
+}
+
+html:not(.dark-mode) .nav-bar.shrunk {
+  background: #FFFFFF !important;
+  box-shadow: 0 1px 0 rgba(11, 59, 46, 0.05), 0 14px 30px rgba(11, 59, 46, 0.10);
+}
+
+html:not(.dark-mode) .logo-img { height: 48px; }
+
+html:not(.dark-mode) .desktop-nav-links a {
+  color: #33473D;
+  font-weight: 600;
+  font-size: 0.84rem;
+  border-radius: 999px;
+  padding: 9px 16px;
+}
+
+html:not(.dark-mode) .desktop-nav-links a:hover,
+html:not(.dark-mode) .desktop-nav-links a.active {
+  color: var(--green-700);
+  background: var(--green-050);
+}
+
+html:not(.dark-mode) .search-toggle,
+html:not(.dark-mode) .mobile-toggle,
+html:not(.dark-mode) .header-icon {
+  color: var(--ink) !important;
+  background: #F1F8F4;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+html:not(.dark-mode) .search-toggle:hover,
+html:not(.dark-mode) .mobile-toggle:hover,
+html:not(.dark-mode) .header-icon:hover {
+  background: var(--green-050);
+  color: var(--green-700) !important;
+  border-color: #CDE9DA;
+}
+
+html:not(.dark-mode) .nav-badge {
+  background: var(--green-700);
+  color: #fff;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+/* ---------- Hero ---------- */
+html:not(.dark-mode) .hero { padding-top: 96px; padding-bottom: 8px; }
+
+html:not(.dark-mode) .hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+html:not(.dark-mode) .hero-showcase {
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(11, 59, 46, 0.10);
+  box-shadow: 0 30px 70px rgba(11, 59, 46, 0.20);
+  background: #E7F3EC;
+}
+
+/* Legibility scrim — the photos no longer wash out the headline */
+html:not(.dark-mode) .hero-slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6, 32, 20, 0.38) 0%, rgba(6, 32, 20, 0.06) 38%, rgba(6, 32, 20, 0.62) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+html:not(.dark-mode) .hero-text-overlay { z-index: 6; }
+
+html:not(.dark-mode) .hero-text-overlay h1 {
+  color: #FFFFFF;
+  text-shadow: 0 4px 26px rgba(0, 0, 0, 0.45);
+  letter-spacing: -0.02em;
+}
+
+html:not(.dark-mode) .hero-text-overlay p {
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+html:not(.dark-mode) .hero-progress { background: rgba(255, 255, 255, 0.28); z-index: 6; }
+html:not(.dark-mode) .hero-progress .fill { background: #8DEBB4; }
+
+/* ---------- Trust strip ---------- */
+html:not(.dark-mode) .trust-strip { padding: 26px 0 10px; }
+
+html:not(.dark-mode) .trust-item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow-card);
+}
+
+html:not(.dark-mode) .trust-item:hover {
+  border-color: #BFE5CE;
+  box-shadow: var(--shadow-card-hover);
+}
+
+html:not(.dark-mode) .trust-icon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--green-050);
+  color: var(--green-700);
+  font-size: 1.15rem;
+}
+
+html:not(.dark-mode) .trust-item h4 { color: var(--ink); font-size: 0.92rem; }
+html:not(.dark-mode) .trust-item p { color: var(--muted); font-size: 0.8rem; }
+
+/* ---------- Section system ---------- */
+html:not(.dark-mode) .section { padding: clamp(4rem, 7vw, 6rem) 0; }
+
+html:not(.dark-mode) .section-header { margin-bottom: clamp(2.25rem, 4vw, 3rem); }
+
+html:not(.dark-mode) .section-header h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+
+html:not(.dark-mode) .section-header p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+html:not(.dark-mode) .section-header .accent-line {
+  width: 56px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--green-600), var(--green-700));
+  margin-top: 14px;
+}
+
+/* Soft alternating bands instead of a wall of white */
+html:not(.dark-mode) #categories,
+html:not(.dark-mode) #newArrivals,
+html:not(.dark-mode) #featured { background: transparent; }
+
+html:not(.dark-mode) .section.testimonials-section { background: var(--band); }
+html:not(.dark-mode) .section.brand-story { background: var(--surface); }
+
+/* ---------- Buttons ---------- */
+html:not(.dark-mode) .btn-primary {
+  background: linear-gradient(135deg, var(--green-600), var(--green-700));
+  color: #FFFFFF !important;
+  border-radius: 12px;
+  padding: 14px 30px;
+  font-weight: 700;
+  box-shadow: 0 10px 22px rgba(11, 122, 59, 0.22);
+}
+
+html:not(.dark-mode) .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(11, 122, 59, 0.30);
+}
+
+html:not(.dark-mode) .btn-secondary {
+  background: #FFFFFF;
+  color: var(--ink) !important;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+/* ---------- Product cards ---------- */
+html:not(.dark-mode) .product-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+html:not(.dark-mode) .product-card:hover {
+  border-color: #C2E6D1;
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-6px);
+}
+
+html:not(.dark-mode) .product-image { background: #F3F9F5; }
+
+html:not(.dark-mode) .product-info { padding: 1rem 1.15rem 1.2rem; }
+
+html:not(.dark-mode) .product-info h3 {
+  color: var(--ink);
+  font-weight: 650;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+html:not(.dark-mode) .product-price {
+  color: var(--green-700);
+  font-weight: 800;
+  font-size: 1.12rem;
+  letter-spacing: -0.01em;
+}
+
+html:not(.dark-mode) .product-old-price,
+html:not(.dark-mode) .product-compare-price {
+  color: #93A79C;
+  font-weight: 500;
+}
+
+/* Contrast fix: was dark ink on a dark button */
+html:not(.dark-mode) .quick-add {
+  background: linear-gradient(135deg, var(--green-600), var(--green-700));
+  color: #FFFFFF !important;
+  border-radius: 12px;
+  padding: 11px;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(11, 122, 59, 0.18);
+}
+
+html:not(.dark-mode) .quick-add:hover {
+  background: linear-gradient(135deg, #14B864, var(--green-700));
+  color: #FFFFFF !important;
+  box-shadow: 0 10px 22px rgba(11, 122, 59, 0.28);
+}
+
+/* Contrast fix: badges had dark ink on saturated fills */
+html:not(.dark-mode) .badge-new { background: var(--green-700); color: #FFFFFF !important; border-radius: 999px; }
+html:not(.dark-mode) .badge-sale { background: #D92D20; color: #FFFFFF !important; border-radius: 999px; }
+
+/* ---------- Category cards ---------- */
+html:not(.dark-mode) .category-card {
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(11, 59, 46, 0.06);
+}
+
+html:not(.dark-mode) .category-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 32, 20, 0) 42%, rgba(6, 32, 20, 0.66) 100%);
+  pointer-events: none;
+}
+
+html:not(.dark-mode) .category-card > * { position: relative; z-index: 1; }
+html:not(.dark-mode) .category-card h3,
+html:not(.dark-mode) .category-card .category-name,
+html:not(.dark-mode) .category-card .category-label {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Testimonials ---------- */
+html:not(.dark-mode) .testimonial-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1.9rem;
+  box-shadow: var(--shadow-card);
+}
+
+html:not(.dark-mode) .testimonial-card p {
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+html:not(.dark-mode) .testimonial-stars { color: #F5A623; }
+
+html:not(.dark-mode) .testimonial-author .avatar {
+  background: var(--green-050);
+  color: var(--green-700);
+  font-weight: 700;
+}
+
+html:not(.dark-mode) .testimonial-author .name { color: var(--ink); }
+html:not(.dark-mode) .testimonial-author .role { color: var(--muted); }
+
+/* ---------- Brand story / counters ---------- */
+html:not(.dark-mode) .brand-story { background: var(--surface); }
+
+html:not(.dark-mode) .brand-content h2 { color: var(--ink); }
+html:not(.dark-mode) .brand-content p { color: var(--ink-soft); line-height: 1.75; }
+
+html:not(.dark-mode) .brand-feature {
+  background: var(--green-050);
+  border: 1px solid #D8EFE1;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: var(--green-700);
+  font-weight: 600;
+}
+
+html:not(.dark-mode) .brand-feature i { color: var(--green-700); }
+
+html:not(.dark-mode) .brand-counter .count {
+  color: var(--green-700);
+  font-size: 2.2rem;
+}
+
+html:not(.dark-mode) .brand-counter .count-label { color: var(--muted); }
+
+html:not(.dark-mode) .brand-collage-item {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- Newsletter (green panel, not another white slab) ---------- */
+html:not(.dark-mode) .newsletter-section { background: transparent; padding: 0 0 clamp(3rem, 6vw, 4.5rem); }
+
+html:not(.dark-mode) .newsletter-section::before { display: none; }
+
+html:not(.dark-mode) .newsletter-inner {
+  max-width: 1100px !important;
+  background:
+    radial-gradient(700px 260px at 12% -10%, rgba(134, 239, 172, 0.22), transparent 70%),
+    linear-gradient(135deg, #0C3D2C 0%, #0B5C3B 55%, #0A7A4A 100%);
+  border-radius: 28px;
+  padding: clamp(2.5rem, 5vw, 3.75rem) 1.5rem;
+  box-shadow: 0 30px 60px rgba(9, 46, 33, 0.28);
+  color: #FFFFFF;
+}
+
+html:not(.dark-mode) .newsletter-inner h2 { color: #FFFFFF !important; }
+html:not(.dark-mode) .newsletter-inner p { color: #CFEADB !important; }
+
+html:not(.dark-mode) .newsletter-form input {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 14px 20px;
+}
+
+html:not(.dark-mode) .newsletter-form input::placeholder { color: #7C9187; }
+
+html:not(.dark-mode) .newsletter-form .btn-primary,
+html:not(.dark-mode) .newsletter-form button {
+  background: #FFFFFF;
+  color: var(--green-700) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+html:not(.dark-mode) .newsletter-form .btn-primary:hover,
+html:not(.dark-mode) .newsletter-form button:hover {
+  background: #EAF7EF;
+  color: var(--green-700) !important;
+}
+
+/* ---------- Footer ---------- */
+html:not(.dark-mode) .silhouette-footer { background: #0A3628; }
+html:not(.dark-mode) .footer-brand p { color: #A9C8B9; }
+
+html:not(.dark-mode) .footer-col h4 {
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+html:not(.dark-mode) .footer-links a,
+html:not(.dark-mode) .footer-links li.contact-item { color: #B7D5C6; }
+
+html:not(.dark-mode) .footer-links a:hover { color: #FFFFFF; }
+html:not(.dark-mode) .footer-links li.contact-item i { color: #7FE0A9; }
+
+html:not(.dark-mode) .social-links a {
+  background: rgba(255, 255, 255, 0.07);
+  color: #CFE7DB;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html:not(.dark-mode) .social-links a:hover { background: #12A85A; color: #FFFFFF; }
+
+html:not(.dark-mode) .payment-icon {
+  background: rgba(255, 255, 255, 0.07);
+  color: #CFE7DB;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+html:not(.dark-mode) .footer-bottom,
+html:not(.dark-mode) .copyright,
+html:not(.dark-mode) .footer-bottom-links a { color: #9DBBAC; }
+
+/* ---------- Small fixes ---------- */
+html:not(.dark-mode) .ad-label { background: rgba(8, 32, 22, 0.74); color: #FFFFFF !important; }
+
+html:not(.dark-mode) .back-to-top {
+  background: var(--green-700);
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px rgba(11, 122, 59, 0.30);
+}
+
+html:not(.dark-mode) .theme-toggle-btn:hover {
+  background: linear-gradient(135deg, var(--green-600), var(--green-700));
+  box-shadow: 0 10px 28px rgba(11, 122, 59, 0.40);
+}
+
+html:not(.dark-mode) input,
+html:not(.dark-mode) textarea,
+html:not(.dark-mode) select { color: var(--ink); }
+
+html:not(.dark-mode) ::selection { background: rgba(18, 168, 90, 0.18); color: var(--ink); }
+
+/* ---------- Dark mode harmonised to the same brand ---------- */
+.dark-mode .product-card,
+.dark-mode .card { background: #14231C !important; border-color: rgba(255, 255, 255, 0.08) !important; }
+.dark-mode .quick-add { color: #FFFFFF !important; }
+.dark-mode .newsletter-inner { background: linear-gradient(135deg, #0C3D2C, #0A7A4A); border-radius: 26px; }
+
+/* ===== Animated checkmark on copy buttons (used by checkout.html) ===== */
+.copy-btn .copy-state,
+.copy-btn .copied-state { display: inline-flex; align-items: center; gap: 6px; }
+.copy-btn .copied-state { display: none; }
+.copy-btn.copied .copy-state { display: none; }
+.copy-btn.copied .copied-state { display: inline-flex; align-items: center; gap: 6px; }
+.copy-btn {
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.copy-btn.copied {
+  background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%) !important;
+  border-color: rgba(34,197,94,0.6) !important;
+  color: #ffffff !important;
+  animation: copy-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.copy-btn.copied:hover { transform: scale(1.02); box-shadow: 0 6px 18px rgba(34,197,94,0.32); }
+.copy-btn .check-icon {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.65, 0, 0.35, 1) 0.05s, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s;
+  transform: scale(0.6);
+}
+.copy-btn.copied .check-icon { stroke-dashoffset: 0; transform: scale(1); }
+@keyframes copy-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+  /* copy-failed-state sibling CSS (added by apply_v3_fixes pass) */
+.copy-btn .copy-failed-state { display: none; align-items: center; gap: 6px; }
+.copy-btn.copy-failed .copy-state { display: none; }
+.copy-btn.copy-failed .copy-failed-state { display: inline-flex; }
+.copy-btn .copy-failed-state svg.fail-icon {
+  stroke: #ffffff;          /* pinned explicitly so it survives .copy-btn color tweaks */
+  stroke-dasharray: 32;
+  stroke-dashoffset: 32;
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.65, 0, 0.35, 1) 0.05s, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s;
+  transform: scale(0.6);
+}
+.copy-btn.copy-failed .copy-failed-state svg.fail-icon { stroke-dashoffset: 0; transform: scale(1); }
+.copy-btn .copy-failed-state span { color: #ffffff; font-weight: 700; letter-spacing: 0.04em; }
+
+/* Dark-mode variants of the copied-success state */
+.dark-mode .copy-btn.copied { background: linear-gradient(135deg, #34D399 0%, #10B981 100%) !important; border-color: rgba(16,185,129,0.6) !important; }
+
+/* copy-failed state (added by apply_final_fixes pass) */
+.copy-btn.copy-failed {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+    border-color: rgba(239,68,68,0.6) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(239,68,68,0.32) !important;
+    animation: copy-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.copy-btn.copy-failed .copy-state { color: #ffffff; }
+.copy-btn.copy-failed:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(239,68,68,0.48) !important; }
+.dark-mode .copy-btn.copy-failed { background: linear-gradient(135deg, #f87171 0%, #dc2626 100%) !important; border-color: rgba(248,113,113,0.7) !important; }
+.copy-btn .copy-failed-state-inner { display: inline-flex; align-items: center; gap: 6px; }
+
+/* =========================================================
+   IndiaMedCare v3 — editorial content sections + Indian accent
+   (saffron/red notes on top of the pharmacy green)
+   ========================================================= */
+
+html:not(.dark-mode) {
+  --imc-saffron: #E4711B;
+  --imc-red: #C0392B;
+  --imc-red-soft: #FCEDE9;
+}
+
+/* Tricolour hairline under the header — subtle nod to the Indian palette */
+.site-header::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FF9933 0 33.33%, #F2F2F2 33.33% 66.66%, #138808 66.66% 100%);
+  pointer-events: none;
+}
+
+html:not(.dark-mode) .accent-line {
+  background: linear-gradient(90deg, var(--imc-saffron), var(--imc-red) 55%, var(--green-700));
+}
+
+html:not(.dark-mode) .testimonial-stars { color: var(--imc-saffron); }
+
+html:not(.dark-mode) .newsletter-inner {
+  background: linear-gradient(135deg, #0B3B2A 0%, #0B7A3B 58%, #A93226 145%);
+}
+
+.imc-eyebrow {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--imc-red);
+  background: var(--imc-red-soft);
+  padding: 7px 13px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+/* ---------- Why IndiaMedCare ---------- */
+.imc-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 30px;
+}
+
+html:not(.dark-mode) .imc-feature-card {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 26px 24px;
+  box-shadow: 0 10px 30px rgba(11, 59, 46, 0.06);
+}
+
+html:not(.dark-mode) .imc-feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--imc-saffron), var(--imc-red));
+}
+
+html:not(.dark-mode) .imc-feature-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+html:not(.dark-mode) .imc-feature-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+html:not(.dark-mode) .imc-feature-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--imc-red-soft);
+  color: var(--imc-red);
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+html:not(.dark-mode) .imc-stat-band {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  background: linear-gradient(120deg, #0B3B2A 0%, #0B7A3B 80%);
+  border-radius: 22px;
+  padding: 28px 26px;
+  color: #FFFFFF;
+}
+
+.imc-stat b {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.85rem;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.imc-stat span {
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  opacity: 0.85;
+}
+
+/* ---------- How it works ---------- */
+html:not(.dark-mode) .imc-steps { background: #F5FAF7; }
+
+.imc-step-list {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  counter-reset: imc-step;
+}
+
+html:not(.dark-mode) .imc-step {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px 22px;
+  counter-increment: imc-step;
+}
+
+html:not(.dark-mode) .imc-step::before {
+  content: counter(imc-step, decimal-leading-zero);
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--imc-red);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+html:not(.dark-mode) .imc-step h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 7px;
+}
+
+html:not(.dark-mode) .imc-step p {
+  color: var(--muted);
+  font-size: 0.89rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+html:not(.dark-mode) .imc-crypto-note {
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 17px 19px;
+  border-radius: 16px;
+  background: var(--imc-red-soft);
+  border: 1px solid rgba(192, 57, 43, 0.18);
+}
+
+.imc-crypto-note i { color: var(--imc-red); font-size: 1.15rem; margin-top: 2px; }
+.imc-crypto-note p { margin: 0; color: #7A2A22; font-size: 0.89rem; line-height: 1.6; }
+.imc-crypto-note strong { color: #5E1F18; }
+
+/* ---------- FAQ ---------- */
+.imc-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+html:not(.dark-mode) .imc-faq-item {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0 18px;
+  box-shadow: 0 6px 18px rgba(11, 59, 46, 0.04);
+}
+
+.imc-faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 0;
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.imc-faq-item summary::-webkit-details-marker { display: none; }
+.imc-faq-item summary::after { content: '+'; color: var(--imc-red); font-size: 1.15rem; font-weight: 700; }
+.imc-faq-item[open] summary::after { content: '\2212'; }
+
+html:not(.dark-mode) .imc-faq-item p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0 0 17px;
+}
+
+@media (max-width: 640px) {
+  .imc-stat-band { grid-template-columns: 1fr 1fr; gap: 16px; padding: 22px; }
+  .imc-faq-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Shop by Category: compact tiles (cards were stretching to fill the row) ---------- */
+html:not(.dark-mode) .categories-section { padding-block: clamp(2.75rem, 4.5vw, 3.5rem); }
+html:not(.dark-mode) .categories-section .section-header { margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem); }
+
+html:not(.dark-mode) .categories-grid {
+  grid-template-columns: repeat(auto-fit, minmax(0, 176px));
+  justify-content: center;
+  gap: 16px;
+}
+
+html:not(.dark-mode) .category-card {
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+}
+
+html:not(.dark-mode) .category-overlay { padding: 0.85rem 1rem; }
+html:not(.dark-mode) .category-overlay h3 { font-size: 0.92rem; line-height: 1.25; }
+html:not(.dark-mode) .category-overlay .cat-count {
+  font-size: 0.66rem;
+  margin-top: 1px;
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+html:not(.dark-mode) .cat-shop-btn { margin-top: 6px; padding: 6px 13px; font-size: 0.64rem; }
+
+@media (max-width: 768px) {
+  html:not(.dark-mode) .categories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    gap: 10px;
+  }
+  html:not(.dark-mode) .category-card { aspect-ratio: 4 / 5; }
+  html:not(.dark-mode) .category-overlay { padding: 0.7rem 0.8rem; }
+  html:not(.dark-mode) .category-overlay h3 { font-size: 0.84rem; }
+}
+
+/* ---------- Pharmacists row + bio modal ---------- */
+.imc-pharm-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 200px));
+  justify-content: center;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.imc-pharm-card {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+  font-family: inherit;
+}
+
+.imc-pharm-photo {
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 14px;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 12px 28px rgba(11, 59, 46, 0.14), 0 0 0 1px var(--line);
+  background: var(--green-050);
+  display: grid;
+  place-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.imc-pharm-card:hover .imc-pharm-photo {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(11, 59, 46, 0.2), 0 0 0 3px rgba(192, 57, 43, 0.18);
+}
+
+.imc-pharm-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.imc-pharm-initials { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--green-700); }
+
+.imc-pharm-name { font-weight: 700; color: var(--ink); font-size: 0.95rem; line-height: 1.3; }
+.imc-pharm-spec { color: var(--imc-red); font-size: 0.76rem; font-weight: 600; margin-top: 3px; line-height: 1.4; }
+
+.imc-pharm-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 32, 20, 0.55);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 9999;
+}
+
+.imc-pharm-modal.active { display: flex; }
+
+.imc-pharm-modal-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  max-width: 520px;
+  width: 100%;
+  padding: 34px 30px 30px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  max-height: 88vh;
+  overflow: auto;
+}
+
+.imc-pharm-modal-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 18px;
+  box-shadow: 0 10px 26px rgba(11, 59, 46, 0.16);
+  display: block;
+}
+
+.imc-pharm-modal-card h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--ink); margin-bottom: 4px; }
+.imc-pharm-modal-spec { color: var(--imc-red); font-weight: 700; font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; }
+.imc-pharm-modal-card p { color: var(--muted); font-size: 0.93rem; line-height: 1.75; margin: 0; }
+
+.imc-pharm-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: var(--imc-red-soft);
+  color: var(--imc-red);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.dark-mode .imc-pharm-name { color: #F1F7F4; }
+.dark-mode .imc-pharm-modal-card { background: #14231C; }
+.dark-mode .imc-pharm-modal-card h3 { color: #F1F7F4; }
+.dark-mode .imc-pharm-modal-card p { color: #C7D6CE; }
+
+@media (max-width: 640px) {
+  .imc-pharm-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .imc-pharm-photo { width: 104px; height: 104px; }
+  .imc-pharm-modal-card { padding: 30px 22px 24px; }
+}

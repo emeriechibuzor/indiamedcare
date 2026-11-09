@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Contact Us | IndiaMedCare</title>
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://oalshkwaqaljcaqrsoqi.supabase.co" />
+
+    <!-- Lucide Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/lucide-static@0.460.0/font/lucide.css" />
+    <!-- Playfair Display + Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+    <style>:root{
+            --gold: #16A34A;
+            --gold-dark: #15803D;
+            --gold-light: rgba(22, 163, 74, 0.12);
+            --gold-glow: 0 0 30px rgba(22, 163, 74, 0.3);
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #1D3529;
+            --transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.10);
+            --glass-dark: rgba(255, 255, 255, 0.9500000000000001);
+            --glass-blur: blur(16px);
+            --radius: 16px;
+            --radius-lg: 24px;
+            --nav-height: 76px;
+        }/* ===== HEADER ===== *//* Mobile Nav *//* Back to top *//* Scroll reveal *//* ===== SILHOUETTE FOOTER ===== *//* ===== CONTACT PAGE SPECIFIC ===== *//* Contact info cards *//* Social section *//* Larger interactive footer brand icons (override the small 1.2rem rule) *//* Dark-mode polish for the contact page blocks *//* Polished lift for the contact-info cards on hover *//* Map placeholder *//* Contact form *//* FAQ mini section *//* ===== HEADER ===== *//* Mobile Nav *//* Back to top *//* Scroll reveal *//* ===== SILHOUETTE FOOTER ===== *//* ===== CONTACT PAGE SPECIFIC ===== *//* Contact info cards *//* Social section *//* Larger interactive footer brand icons (override the small 1.2rem rule) *//* Dark-mode polish for the contact page blocks *//* Polished lift for the contact-info cards on hover *//* Map placeholder *//* Contact form *//* FAQ mini section */          *{ margin: 0; padding: 0; box-sizing: border-box; }html{ scroll-behavior: smooth; }body{
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #faf8f5; color: var(--gray-800);
+            overflow-x: hidden; min-height: 100vh;
+        }.container{ max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }h1, h2, h3{ font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }h4, h5, h6{ font-family: 'Inter', sans-serif; }.skip-link{
+            position: absolute; top: -100px; left: 16px; z-index: 9999;
+            background: var(--gold); color: #ffffff; padding: 12px 24px;
+            border-radius: 0 0 var(--radius) var(--radius);
+            font-weight: 700; text-decoration: none; font-size: 0.9rem;
+            transition: top 0.2s ease;
+        }.skip-link:focus{ top: 0; }@media (prefers-reduced-motion: reduce){*, *::before, *::after{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }/* ===== HEADER ===== *//* ===== HEADER ===== */          .nav-bar{
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1050;
+            background: var(--glass-dark); backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid rgba(22, 163, 74, 0.15);
+            transition: padding 0.3s ease, background 0.3s ease;
+        }.nav-bar.shrunk{ background: rgba(255, 255, 255, 0.98); border-bottom-color: rgba(22, 163, 74, 0.25); }.nav-bar.shrunk .logo-img{ height: 40px; }.nav-bar.shrunk .header-container{ padding-top: 6px; padding-bottom: 6px; }.header-container{
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 1.5rem; max-width: 1280px; margin: 0 auto;
+            transition: padding 0.3s ease;
+        }.header-left{ display: flex; align-items: center; gap: 8px; }.mobile-toggle{
+            background: rgba(13, 82, 53, 0.10); border: none; font-size: 1.4rem;
+            width: 44px; height: 44px; border-radius: 12px; color: var(--gold);
+            cursor: pointer; transition: var(--transition);
+            display: flex; align-items: center; justify-content: center;
+        }.mobile-toggle:hover{ background: var(--gold); color: #ffffff; }.header-center{ flex: 0 0 auto; display: flex; justify-content: center; align-items: center; }.logo-img{
+            height: 56px; width: auto; object-fit: contain; display: block;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3)); transition: height 0.3s ease;
+        }.desktop-nav-links{
+            display: none; list-style: none; gap: 4px; align-items: center;
+        }.desktop-nav-links a{
+            color: #64756C; text-decoration: none; font-size: 0.82rem;
+            font-weight: 500; padding: 8px 14px; border-radius: 10px;
+            transition: var(--transition); font-family: 'Inter', sans-serif; white-space: nowrap;
+        }.desktop-nav-links a:hover{ color: #1D3529; background: rgba(13, 82, 53, 0.10); }.desktop-nav-links a.active{ color: var(--gold); }.header-right{ display: flex; align-items: center; gap: 8px; }.search-toggle, .header-icon{
+            position: relative; font-size: 1.25rem; color: #2B4137; cursor: pointer;
+            transition: var(--transition); background: rgba(13, 82, 53, 0.10);
+            width: 44px; height: 44px; display: flex; align-items: center;
+            justify-content: center; border-radius: 12px; border: none; text-decoration: none;
+        }.search-toggle:hover, .header-icon:hover{ background: var(--gold); color: #ffffff; }.nav-badge{
+            position: absolute; top: -4px; right: -4px; background: var(--gold);
+            color: #ffffff; font-size: 0.65rem; font-weight: 800;
+            min-width: 18px; height: 18px; border-radius: 30px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 0 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }.search-overlay{
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.9500000000000001); backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1100; display: none; flex-direction: column; align-items: center;
+            padding-top: 100px; overflow-y: auto;
+        }.search-overlay.active{ display: flex; }.search-box{ width: 92%; max-width: 640px; position: relative; }.search-box input{
+            width: 100%; padding: 18px 56px 18px 50px; font-size: 1.1rem;
+            border: 2px solid rgba(22, 163, 74,0.3); border-radius: 50px;
+            background: rgba(255, 255, 255, 0.98); color: #1D3529; outline: none;
+            font-family: 'Inter', sans-serif; transition: border-color 0.3s ease;
+        }.search-box input:focus{ border-color: var(--gold); }.search-box input::placeholder{ color: #6B7C73; }.search-box .search-icon-input{ position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #6B7C73; font-size: 1.1rem; pointer-events: none; }.search-box .search-close{ position: absolute; right: 16px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #6B7C73; font-size: 1.3rem; cursor: pointer; padding: 4px; transition: var(--transition); }.search-box .search-close:hover{ color: var(--gold); }.search-results-container{ width: 92%; max-width: 640px; margin-top: 16px; padding-bottom: 60px; }.search-status{ color: #6B7C73; font-size: 0.85rem; padding: 8px 4px; }.search-results-grid{ display: grid; grid-template-columns: 1fr; gap: 10px; }.search-result-item{
+            display: flex; gap: 14px; padding: 14px; background: rgba(255, 255, 255, 0.93);
+            border-radius: 14px; cursor: pointer; transition: all 0.2s ease;
+            border: 1px solid rgba(13, 82, 53, 0.10); text-decoration: none; align-items: center;
+        }.search-result-item:hover{ background: rgba(255, 255, 255, 0.98); border-color: rgba(22, 163, 74,0.3); }.search-result-img{ width: 64px; height: 64px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }.search-result-info{ flex: 1; min-width: 0; }.search-result-name{ font-size: 0.9rem; font-weight: 600; color: #2B4137; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }.search-result-category{ font-size: 0.72rem; color: var(--gold); background: rgba(22, 163, 74,0.12); padding: 2px 8px; border-radius: 20px; display: inline-block; margin-bottom: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }.search-result-price{ font-size: 0.85rem; font-weight: 700; color: var(--gold-dark); }.search-empty{ text-align: center; padding: 40px 20px; color: #6B7C73; }.search-empty i{ font-size: 2.5rem; display: block; margin-bottom: 12px; opacity: 0.4; }.search-empty p{ font-size: 0.9rem; margin-bottom: 4px; }@media (min-width: 640px){.search-results-grid{ grid-template-columns: 1fr 1fr; } }/* Mobile Nav *//* Mobile Nav */          .overlay{
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 1060; display: none; cursor: pointer;
+        }.overlay.active{ display: block; }.mobile-nav{
+            position: fixed; top: 0; left: -100%; width: 85%; max-width: 360px;
+            height: 100vh; height: 100dvh;
+            background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            z-index: 1070; transition: left 0.4s ease;
+            padding: 28px 20px; border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+            overflow-y: auto;
+        }.mobile-nav.active{ left: 0; }.mobile-nav-header{
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 32px; padding-bottom: 16px;
+            border-bottom: 1px solid rgba(22, 163, 74,0.2);
+        }.mobile-nav-header .logo-img{ height: 44px; }.close-nav{
+            background: rgba(13, 82, 53, 0.10); border: none; font-size: 1.4rem;
+            width: 44px; height: 44px; border-radius: 12px; color: var(--gold);
+            cursor: pointer; transition: var(--transition);
+            display: flex; align-items: center; justify-content: center;
+        }.close-nav:hover{ background: var(--gold); color: #ffffff; }.mobile-nav-links{ list-style: none; display: flex; flex-direction: column; gap: 6px; }.mobile-nav-links li a{
+            display: flex; align-items: center; gap: 14px; padding: 14px 18px;
+            background: rgba(13, 82, 53, 0.10); border-radius: 14px;
+            font-weight: 500; color: #33463D; text-decoration: none;
+            transition: var(--transition); font-size: 0.95rem;
+        }.mobile-nav-links li a i{ font-size: 1.2rem; color: var(--gold); }.mobile-nav-links li a:hover{ background: var(--gold); color: #ffffff; transform: translateX(6px); }.mobile-nav-links li a:hover i{ color: #F7FBF8; }.mobile-nav-links li a.active{ background: rgba(22, 163, 74,0.15); color: var(--gold); }/* Back to top *//* Back to top */          .back-to-top{
+            position: fixed; bottom: 24px; right: 24px; z-index: 1030;
+            width: 48px; height: 48px; border-radius: 50%;
+            background: var(--gold); color: #F7FBF8; border: none;
+            font-size: 1.3rem; cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            box-shadow: 0 4px 16px rgba(22, 163, 74,0.3);
+            opacity: 0; transform: translateY(20px); pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }.back-to-top.visible{ opacity: 1; transform: translateY(0); pointer-events: auto; }.back-to-top:hover{ transform: translateY(-3px); box-shadow: var(--gold-glow); }/* Scroll reveal *//* Scroll reveal */          .reveal{ opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }.reveal.visible{ opacity: 1; transform: translateY(0); }/* ===== SILHOUETTE FOOTER ===== *//* ===== SILHOUETTE FOOTER ===== */          .silhouette-footer{ position: relative; background: #0B3B2E; color: #eef2f5; padding: 80px 0 0; overflow: hidden; }.footer-skyline{ position: absolute; bottom: 0; left: 0; right: 0; height: 120px; pointer-events: none; z-index: 0; }.footer-grid{ display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.2fr; gap: 2.5rem; max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }.footer-brand p{ color: #94a3b8; font-size: 0.85rem; line-height: 1.7; margin-top: 12px; }.footer-logo-img{ height: 56px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.9; }.social-links{ display: flex; gap: 10px; margin-top: 20px; }.social-links a{ background: rgba(13, 82, 53, 0.10); width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 1.2rem; transition: var(--transition); text-decoration: none; }.social-links a:hover{ background: var(--gold); color: #F7FBF8; transform: translateY(-2px); }.footer-col h4{ font-size: 0.85rem; font-weight: 700; margin-bottom: 16px; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; }.footer-links{ list-style: none; }.footer-links li{ margin-bottom: 10px; }.footer-links a{ color: #94a3b8; text-decoration: none; font-size: 0.85rem; transition: var(--transition); }.footer-links a:hover{ color: white; padding-left: 4px; }.footer-links li.contact-item{ display: flex; align-items: center; gap: 8px; color: #94a3b8; font-size: 0.85rem; }.footer-links li.contact-item i{ color: var(--gold); font-size: 1rem; }.payment-methods{ display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }.payment-icon{ background: rgba(13, 82, 53, 0.10); padding: 8px 14px; border-radius: 8px; font-size: 0.72rem; font-weight: 600; color: #6B7C73; border: 1px solid rgba(13, 82, 53, 0.10); transition: var(--transition); }.payment-icon:hover{ border-color: rgba(22, 163, 74,0.3); }.footer-bottom{ margin-top: 48px; padding: 24px 1.5rem; border-top: 1px solid rgba(13, 82, 53, 0.10); position: relative; z-index: 1; }.footer-bottom-inner{ max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }.copyright{ font-size: 0.75rem; color: #6B7C73; }.footer-bottom-links{ display: flex; gap: 20px; list-style: none; }.footer-bottom-links a{ color: #64748b; text-decoration: none; font-size: 0.75rem; transition: var(--transition); }.footer-bottom-links a:hover{ color: var(--gold); }/* ===== CONTACT PAGE SPECIFIC ===== *//* ===== CONTACT PAGE SPECIFIC ===== */          .contact-hero{
+            background: linear-gradient(135deg, #EAF6F0 0%, #F7FBF8 100%);
+            padding: 140px 0 80px; text-align: center; position: relative; overflow: hidden;
+        }.contact-hero::before{
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 80% 50% at 50% 50%, rgba(22, 163, 74,0.08), transparent);
+            pointer-events: none;
+        }.contact-hero h1{
+            font-size: clamp(2rem, 4vw, 3rem); color: #1D3529; margin-bottom: 0.75rem;
+        }.contact-hero p{
+            color: #6B7C73; font-size: 1.05rem; max-width: 520px; margin: 0 auto;
+        }.contact-hero .accent-line{
+            width: 48px; height: 3px; background: var(--gold); margin: 16px auto 0; border-radius: 2px;
+        }.contact-main{ padding: 80px 0; }.contact-grid{
+            display: grid; grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: start;
+        }@media (max-width: 1024px){.contact-grid{ grid-template-columns: 1fr; gap: 2.5rem; } }/* Contact info cards *//* Contact info cards */          .contact-info-section{ display: flex; flex-direction: column; gap: 1.5rem; }.contact-info-card{
+            background: white; border-radius: var(--radius);
+            padding: 1.5rem; border: 1px solid var(--gray-100);
+            display: flex; gap: 1rem; align-items: flex-start;
+            transition: var(--transition); box-shadow: var(--shadow);
+        }.contact-info-card:hover{ border-color: var(--gold); transform: translateY(-2px); box-shadow: var(--shadow-lg); }.contact-info-icon{
+            width: 48px; height: 48px; border-radius: 12px;
+            background: var(--gold-light); display: flex;
+            align-items: center; justify-content: center;
+            color: var(--gold-dark); font-size: 1.3rem; flex-shrink: 0;
+        }.contact-info-text{ flex: 1; }.contact-info-text h3{ font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; font-family: 'Inter', sans-serif; }.contact-info-text p{ font-size: 0.85rem; color: var(--gray-500); line-height: 1.6; }.contact-info-text a{
+            color: var(--gold-dark); text-decoration: none; font-weight: 600;
+            transition: var(--transition);
+        }.contact-info-text a:hover{ color: var(--gold); }.contact-info-text .timing{ font-size: 0.8rem; color: var(--gray-400); margin-top: 2px; }/* Social section *//* Social section */          .contact-social-section{
+            background: white; border-radius: var(--radius);
+            padding: 1.5rem; border: 1px solid var(--gray-100);
+            box-shadow: var(--shadow);
+        }.contact-social-section h3{ font-size: 1rem; font-weight: 700; margin-bottom: 1rem; font-family: 'Inter', sans-serif; }.contact-social-grid{
+            display: flex; gap: 0.75rem; flex-wrap: wrap;
+        }.contact-social-link{
+            display: flex; align-items: center; gap: 8px;
+            padding: 10px 18px; background: var(--gray-50); border-radius: 12px;
+            text-decoration: none; color: var(--gray-700); font-size: 0.85rem; font-weight: 500;
+            border: 1px solid var(--gray-100); transition: var(--transition);
+        }.contact-social-link i{ font-size: 1.1rem; }.contact-social-link svg{ width: 22px; height: 22px; flex-shrink: 0; transition: transform 0.3s cubic-bezier(0.68,-0.55,0.27,1.55); }.contact-social-link:hover{ background: var(--gold); color: #F7FBF8; border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(22, 163, 74,0.35), 0 0 0 3px rgba(22, 163, 74,0.18); }.contact-social-link:hover svg{ transform: scale(1.22) rotate(-8deg); }.contact-social-link[aria-label="Facebook"] svg{ color: #1877F2; }.contact-social-link[aria-label="Facebook"]:not(:hover){ box-shadow: inset 0 0 0 1px rgba(24,119,242,0.18); }.contact-social-link[aria-label="Facebook"]:hover svg{ color: #ffffff; }.contact-social-link[aria-label="Instagram"] svg{ color: #E4405F; }.contact-social-link[aria-label="Instagram"]:not(:hover){ background: linear-gradient(135deg,#FEDA77 0%,#F58529 25%,#DD2A7B 50%,#8134AF 75%,#515BD4 100%); color: #ffffff; border-color: transparent; }.contact-social-link[aria-label="Instagram"]:not(:hover) svg{ color: #ffffff; }.contact-social-link[aria-label="Instagram"]:hover{ background: var(--gold) !important; color: #F7FBF8 !important; }.contact-social-link[aria-label="TikTok"] svg{ color: #111111; }.contact-social-link[aria-label="TikTok"]:not(:hover){ box-shadow: inset 0 0 0 1px rgba(37,244,238,0.45); }.contact-social-link[aria-label="TikTok"]:hover svg{ color: #ffffff; }.contact-social-link[aria-label="WhatsApp"] svg{ color: #25D366; }.contact-social-link[aria-label="WhatsApp"]:not(:hover){ box-shadow: inset 0 0 0 1px rgba(37,211,102,0.32); }.contact-social-link[aria-label="WhatsApp"]:hover svg{ color: #ffffff; }.contact-social-link[aria-label="Twitter"] svg{ color: #1DA1F2; }.contact-social-link[aria-label="Twitter"]:not(:hover){ box-shadow: inset 0 0 0 1px rgba(29,161,242,0.28); }/* Larger interactive footer brand icons (override the small 1.2rem rule) *//* Larger interactive footer brand icons (override the small 1.2rem rule) */          .social-links a{ width: 48px; height: 48px; border-radius: 14px; transition: all 0.3s cubic-bezier(0.68,-0.55,0.27,1.55); }.social-links a svg{ width: 22px; height: 22px; transition: transform 0.3s cubic-bezier(0.68,-0.55,0.27,1.55); }.social-links a:hover svg{ transform: scale(1.18) rotate(-10deg); }.social-links a[aria-label="Facebook"] svg{ color: #1877F2; }.social-links a[aria-label="Instagram"]:not(:hover) svg{ color: #E4405F; }.social-links a[aria-label="TikTok"]:not(:hover) svg{ color: #111111; }.social-links a[aria-label="Twitter"] svg{ color: #1DA1F2; }.social-links a[aria-label="WhatsApp"] svg{ color: #25D366; }.social-links a:hover[aria-label="Facebook"], .social-links a:hover[aria-label="Instagram"], .social-links a:hover[aria-label="TikTok"], .social-links a:hover[aria-label="Twitter"], .social-links a:hover[aria-label="WhatsApp"] svg{ color: #ffffff; }/* Dark-mode polish for the contact page blocks *//* Dark-mode polish for the contact page blocks */          .dark-mode .contact-social-section,          .dark-mode .contact-info-section,          .dark-mode .contact-map-section,          .dark-mode .contact-form-section,          .dark-mode .faq-section,          .dark-mode .silhouette-footer{ background: var(--gray-100) !important; color: var(--gray-800) !important; border-color: rgba(255,255,255,0.08) !important; }.dark-mode .silhouette-footer{ background: #FCFEFD !important; }.dark-mode .contact-info-text a{ color: #A9B8B0; }.dark-mode .contact-info-text a:hover{ color: #fbbf24; }.dark-mode .contact-info-icon{ color: #fbbf24; }.dark-mode .contact-hero h1, .dark-mode .contact-hero p{ color: var(--gray-900); }/* Polished lift for the contact-info cards on hover *//* Polished lift for the contact-info cards on hover */          .contact-info-card{ transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), border-color 0.3s ease, box-shadow 0.3s ease; }.contact-info-card:hover{ transform: translateY(-4px) scale(1.01); border-color: var(--gold); box-shadow: 0 12px 30px rgba(22, 163, 74,0.18), 0 0 0 2px rgba(22, 163, 74,0.10); }.dark-mode .contact-info-card{ background: var(--gray-200) !important; border-color: rgba(13, 82, 53, 0.10) !important; }.dark-mode .contact-info-card:hover{ border-color: rgba(251,191,36,0.45) !important; box-shadow: 0 0 0 2px rgba(251,191,36,0.18), 0 12px 30px rgba(0,0,0,0.4) !important; }/* Map placeholder *//* Map placeholder */          .contact-map-section{
+            background: var(--gray-100); border-radius: var(--radius);
+            height: 200px; display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--gray-200); overflow: hidden;
+        }.contact-map-placeholder{
+            text-align: center; color: var(--gray-500);
+        }.contact-map-placeholder i{ font-size: 2rem; display: block; margin-bottom: 8px; opacity: 0.5; }/* Contact form *//* Contact form */          .contact-form-section{
+            background: white; border-radius: var(--radius-lg);
+            padding: 2.5rem; border: 1px solid var(--gray-100);
+            box-shadow: var(--shadow-lg);
+        }.contact-form-section h2{
+            font-size: 1.5rem; margin-bottom: 0.5rem;
+        }.contact-form-section .form-subtitle{
+            color: var(--gray-500); font-size: 0.9rem; margin-bottom: 1.5rem;
+        }.form-group{ margin-bottom: 1.25rem; }.form-group label{
+            display: block; font-size: 0.8rem; font-weight: 600;
+            color: var(--gray-700); margin-bottom: 6px;
+        }.form-group label .required{ color: #dc2626; }.form-group input,          .form-group textarea,          .form-group select{
+            width: 100%; padding: 12px 16px; font-size: 0.9rem;
+            border: 1px solid var(--gray-200); border-radius: 12px;
+            outline: none; transition: var(--transition);
+            font-family: 'Inter', sans-serif; background: var(--gray-50);
+        }.form-group input:focus,          .form-group textarea:focus,          .form-group select:focus{
+            border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-light); background: white;
+        }.form-group textarea{ resize: vertical; min-height: 120px; }.form-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }@media (max-width: 640px){.form-row{ grid-template-columns: 1fr; } }.btn-submit{
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 36px; background: linear-gradient(135deg, var(--gold), #16A34A);
+            color: #ffffff; border: none; border-radius: 50px;
+            font-weight: 700; font-size: 0.95rem; cursor: pointer;
+            transition: var(--transition); font-family: 'Inter', sans-serif;
+        }.btn-submit:hover{ transform: translateY(-2px); box-shadow: var(--gold-glow); }.btn-submit:disabled{
+            opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none;
+        }.form-success{
+            display: none; background: #f0fdf4; border: 1px solid #22c55e;
+            border-radius: var(--radius); padding: 1.5rem; text-align: center;
+            color: #166534; font-weight: 500;
+        }.form-success i{ font-size: 2rem; display: block; margin-bottom: 8px; color: #22c55e; }.form-error{
+            color: #dc2626; font-size: 0.8rem; margin-top: 4px; display: none;
+        }/* FAQ mini section *//* FAQ mini section */          .contact-faq{ margin-top: 3rem; }.contact-faq h3{
+            font-size: 1.3rem; margin-bottom: 1.5rem; text-align: center;
+        }.faq-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }@media (max-width: 768px){.faq-grid{ grid-template-columns: 1fr; } }.faq-item{
+            background: white; border-radius: var(--radius);
+            padding: 1.25rem; border: 1px solid var(--gray-100);
+            transition: var(--transition); cursor: pointer;
+        }.faq-item:hover{ border-color: var(--gold); }.faq-question{
+            font-weight: 600; font-size: 0.9rem; display: flex;
+            justify-content: space-between; align-items: center; gap: 8px;
+        }.faq-question i{ color: var(--gold); font-size: 0.85rem; transition: transform 0.3s ease; flex-shrink: 0; }.faq-item.open .faq-question i{ transform: rotate(180deg); }.faq-answer{
+            font-size: 0.82rem; color: var(--gray-500); line-height: 1.6;
+            margin-top: 0; max-height: 0; overflow: hidden;
+            transition: max-height 0.3s ease, margin-top 0.3s ease;
+        }.faq-item.open .faq-answer{ max-height: 500px; margin-top: 10px; }@media (min-width: 1025px){.mobile-toggle{ display: none; }.desktop-nav-links{ display: flex; } }@media (max-width: 768px){.footer-grid{ grid-template-columns: 1fr; gap: 2rem; }.footer-bottom-inner{ flex-direction: column; text-align: center; }.contact-form-section{ padding: 1.5rem; }.contact-hero{ padding: 120px 0 60px; }
+        }
+    </style><!-- ZETRA_THEME_CSS -->
+<link rel="stylesheet" href="theme.css?v=6">
+
+<!-- ZETRA_THEME_FOUC -->
+<script>
+(function(){
+  try{
+    var t = localStorage.getItem('jmpTheme');
+    if (t === 'dark') document.documentElement.classList.add('dark-mode');
+  } catch(e){}
+})();
+</script>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== HEADER ===== -->
+    <nav class="nav-bar" id="navBar">
+        <div class="header-container">
+            <div class="header-left">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation menu">
+                    <i class="icon-menu"></i>
+                </button>
+                <ul class="desktop-nav-links">
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="header-center">
+                <a href="index.html" aria-label="IndiaMedCare Home">
+                    <img src="assets/logos/zetra-logo.svg" alt="IndiaMedCare" class="logo-img" width="56" height="56">
+                </a>
+            </div>
+            <div class="header-right">
+                <button class="search-toggle" id="searchToggle" aria-label="Search products">
+                    <i class="icon-search"></i>
+                </button>
+                <a href="cart.html" class="header-icon" id="cartIcon" aria-label="Shopping cart">
+                    <i class="icon-shopping-bag"></i>
+                    <span class="nav-badge" id="cartCount" style="display:none">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box">
+            <i class="icon-search search-icon-input"></i>
+            <input type="text" id="searchInput" placeholder="Search products, categories..." autocomplete="off" aria-label="Search">
+            <button class="search-close" id="searchClose" aria-label="Close search"><i class="icon-x"></i></button>
+        </div>
+        <div class="search-results-container" id="searchResultsContainer"></div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="overlay" id="navOverlay" role="presentation"></div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <img src="assets/logos/zetra-logo.svg" alt="IndiaMedCare" class="logo-img" width="44" height="44">
+            <button class="close-nav" id="closeNavBtn" aria-label="Close navigation">
+                <i class="icon-x"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html"><i class="icon-house"></i> Home</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="healthcare.html"><i class="icon-heart-pulse"></i> Drug and Meds</a></li>
+            <li><a href="contact.html" class="active"><i class="icon-phone"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="main-content">
+
+        <!-- Hero -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Get in Touch</h1>
+                <p>We'd love to hear from you. Reach out with questions, feedback, or collaboration ideas.</p>
+                <div class="accent-line"></div>
+            </div>
+        </section>
+
+        <!-- Contact main -->
+        <section class="contact-main">
+            <div class="container">
+                <div class="contact-grid">
+
+                    <!-- Left: Contact Info -->
+                    <div class="contact-info-section reveal">
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon"><i class="icon-phone"></i></div>
+                            <div class="contact-info-text">
+                                <h3>Call Us</h3>
+                                <p><a href="tel:+2348000000000">+234 800 000 0000</a></p>
+                                <p class="timing">Mon - Sat, 9am - 7pm (WAT)</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon"><i class="icon-mail"></i></div>
+                            <div class="contact-info-text">
+                                <h3>Email Us</h3>
+                                <p><a href="mailto:hello@indiamedcare.com">hello@indiamedcare.com</a></p>
+                                <p class="timing">We respond within 24 hours</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon"><i class="icon-map-pin"></i></div>
+                            <div class="contact-info-text">
+                                <h3>Location</h3>
+                                <p>Lagos, Nigeria</p>
+                                <p class="timing">Nationwide delivery available</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <div class="contact-info-icon"><i class="icon-clock"></i></div>
+                            <div class="contact-info-text">
+                                <h3>Business Hours</h3>
+                                <p>Monday - Saturday: 9:00 AM - 7:00 PM</p>
+                                <p class="timing">Sunday: Closed</p>
+                            </div>
+                        </div>
+
+                        <!-- Social section -->
+                        <div class="contact-social-section">
+                            <h3>Follow Us</h3>
+                            <div class="contact-social-grid">
+                                <a href="https://wa.me/2348000000000" target="_blank" rel="noopener" class="contact-social-link" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8.9-.9 1.1-.3.2-.5.1c-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.7.1-.2 0-.4 0-.5s-.7-1.7-1-2.4c-.3-.7-.5-.6-.7-.6h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.2 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2"/></svg> WhatsApp</a>
+                                <a href="https://www.instagram.com/zetra1?igsh=ZmNoanQyOTMzOXhw" target="_blank" rel="noopener" class="contact-social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.16 15.58 2.15 15.2 2.15 12s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.8 2.16 12 2.16zm0-2.16C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.36-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.36-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg> Instagram</a>
+                                <a href="https://www.facebook.com/share/1Ckdh3rZZZ/" target="_blank" rel="noopener" class="contact-social-link" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg> Facebook</a>
+                                <a href="https://www.tiktok.com/@zetra" target="_blank" rel="noopener" class="contact-social-link" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg> TikTok</a>
+                                <a href="#" class="contact-social-link" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.92a8.2 8.2 0 0 1-2.36.65 4.1 4.1 0 0 0 1.8-2.27 8.21 8.21 0 0 1-2.6 1 4.1 4.1 0 0 0-7 3.74A11.64 11.64 0 0 1 3.39 4.62a4.1 4.1 0 0 0 1.27 5.47A4.07 4.07 0 0 1 2.8 9.6v.05a4.1 4.1 0 0 0 3.29 4.02 4.11 4.11 0 0 1-1.85.07 4.1 4.1 0 0 0 3.83 2.85A8.23 8.23 0 0 1 2 18.41a11.62 11.62 0 0 0 6.29 1.84c7.55 0 11.68-6.25 11.68-11.67v-.53A8.34 8.34 0 0 0 22 5.92z"/></svg> Twitter</a>
+                            </div>
+                        </div>
+
+                        <!-- Map -->
+                        <div class="contact-map-section">
+                            <div class="contact-map-placeholder">
+                                <i class="icon-map-pin"></i>
+                                <p><strong>Lagos, Nigeria</strong></p>
+                                <p style="font-size:0.8rem;margin-top:4px;">Serving customers nationwide</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <div class="contact-form-section reveal">
+                        <h2>Send Us a Message</h2>
+                        <p class="form-subtitle">Fill in the form below and we'll get back to you as soon as possible.</p>
+
+                        <div class="form-success" id="formSuccess">
+                            <i class="icon-circle-check"></i>
+                            Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                        </div>
+
+                        <form id="contactForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName">Full Name <span class="required">*</span></label>
+                                    <input type="text" id="contactName" name="name" required placeholder="Your full name">
+                                    <div class="form-error" id="nameError">Please enter your name</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email Address <span class="required">*</span></label>
+                                    <input type="email" id="contactEmail" name="email" required placeholder="you@example.com">
+                                    <div class="form-error" id="emailError">Please enter a valid email</div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactPhone">Phone Number</label>
+                                    <input type="tel" id="contactPhone" name="phone" placeholder="+234 800 000 0000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactSubject">Subject <span class="required">*</span></label>
+                                    <select id="contactSubject" name="subject" required>
+                                        <option value="">Select a subject</option>
+                                        <option value="Order Inquiry">Order Inquiry</option>
+                                        <option value="Product Question">Product Question</option>
+                                        <option value="Delivery & Shipping">Delivery & Shipping</option>
+                                        <option value="Returns & Refunds">Returns & Refunds</option>
+                                        <option value="Wholesale / Bulk">Wholesale / Bulk</option>
+                                        <option value="Partnership">Partnership</option>
+                                        <option value="Feedback">Feedback</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="form-error" id="subjectError">Please select a subject</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Message <span class="required">*</span></label>
+                                <textarea id="contactMessage" name="message" required placeholder="Tell us how we can help you..."></textarea>
+                                <div class="form-error" id="messageError">Please enter your message</div>
+                            </div>
+                            <button type="submit" class="btn-submit" id="contactSubmitBtn">
+                                <i class="icon-send"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="contact-faq reveal" style="margin-top:4rem;">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-grid">
+                        <div class="faq-item open">
+                            <div class="faq-question">How do I track my order? <i class="icon-chevron-down"></i></div>
+                            <div class="faq-answer">Once your order is dispatched, you'll receive a tracking link via email and SMS. You can also check your order status in your account dashboard under "My Orders."</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">What is your return policy? <i class="icon-chevron-down"></i></div>
+                            <div class="faq-answer">We accept returns within 7 days of delivery for unopened, unused items in their original sealed packaging. For safety reasons, opened medicines and consumables cannot be returned unless faulty. Contact us to initiate a return.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">How long does delivery take? <i class="icon-chevron-down"></i></div>
+                            <div class="faq-answer">Delivery within Lagos typically takes 1-3 business days. For interstate orders (across Nigeria), delivery takes 3-7 business days depending on your location.</div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">Do you offer international shipping? <i class="icon-chevron-down"></i></div>
+                            <div class="faq-answer">Currently, we only ship within Nigeria. We're working on expanding internationally — stay tuned!</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== SILHOUETTE FOOTER ===== -->
+    <footer class="silhouette-footer">
+        <svg class="footer-skyline" viewBox="0 0 1440 120" preserveAspectRatio="none" fill="rgba(22, 163, 74,0.04)">
+            <path d="M0,120 L0,80 L60,80 L60,50 L80,50 L80,35 L100,35 L100,50 L120,50 L120,80 L200,80 L200,60 L220,60 L220,40 L240,40 L240,20 L260,20 L260,40 L280,40 L280,60 L300,60 L300,80 L400,80 L400,55 L420,55 L420,30 L440,30 L440,10 L460,10 L460,30 L480,30 L480,55 L500,55 L500,80 L580,80 L580,65 L600,65 L600,45 L620,45 L620,65 L640,65 L640,80 L720,80 L720,50 L740,50 L740,25 L760,25 L760,50 L780,50 L780,80 L860,80 L860,70 L880,70 L880,40 L900,40 L900,15 L920,15 L920,40 L940,40 L940,70 L960,70 L960,80 L1040,80 L1040,55 L1060,55 L1060,35 L1080,35 L1080,55 L1100,55 L1100,80 L1180,80 L1180,60 L1200,60 L1200,30 L1220,30 L1220,60 L1240,60 L1240,80 L1320,80 L1320,70 L1340,70 L1340,45 L1360,45 L1360,70 L1380,70 L1380,80 L1440,80 L1440,120 Z" />
+        </svg>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/logos/zetra-logo.svg" alt="IndiaMedCare" class="footer-logo-img" width="56" height="56">
+                <p>Trusted pharmaceutical products and health essentials for you and your family. Genuine products, delivered fast.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/2348000000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.2-.8.9-.9 1.1-.3.2-.5.1c-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.7.1-.2 0-.4 0-.5s-.7-1.7-1-2.4c-.3-.7-.5-.6-.7-.6h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.2 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.5-.3M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2"/></svg></a>
+                    <a href="https://www.instagram.com/zetra1?igsh=ZmNoanQyOTMzOXhw" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.16 15.58 2.15 15.20 2.15 12s.01-3.58.07-4.85c.15-3.23 1.66-4.77 4.92-4.92C8.42 2.17 8.80 2.16 12 2.16zm0-2.16C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.36-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.36-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+                    <a href="https://www.facebook.com/share/1Ckdh3rZZZ/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+                    <a href="https://www.tiktok.com/@zetra" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+                    <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 5.92a8.2 8.2 0 0 1-2.36.65 4.1 4.1 0 0 0 1.8-2.27 8.21 8.21 0 0 1-2.6 1 4.1 4.1 0 0 0-7 3.74A11.64 11.64 0 0 1 3.39 4.62a4.1 4.1 0 0 0 1.27 5.47A4.07 4.07 0 0 1 2.8 9.6v.05a4.1 4.1 0 0 0 3.29 4.02 4.11 4.11 0 0 1-1.85.07 4.1 4.1 0 0 0 3.83 2.85A8.23 8.23 0 0 1 2 18.41a11.62 11.62 0 0 0 6.29 1.84c7.55 0 11.68-6.25 11.68-11.67v-.53A8.34 8.34 0 0 0 22 5.92z"/></svg></a>
+                </div>
+                <div class="payment-methods">
+                    <span class="payment-icon"><i class="icon-banknote" style="font-size:0.9rem;vertical-align:middle;margin-right:4px"></i> Bitcoin</span>
+                    <span class="payment-icon"><i class="icon-banknote" style="font-size:0.9rem;vertical-align:middle;margin-right:4px"></i> USDT</span>
+                    <span class="payment-icon"><i class="icon-truck" style="font-size:0.9rem;vertical-align:middle;margin-right:4px"></i> Pay on Delivery</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul class="footer-links">
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li><a href="healthcare.html">Drug and Meds</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get in Touch</h4>
+                <ul class="footer-links">
+                    <li class="contact-item"><i class="icon-phone"></i> +234 800 000 0000</li>
+                    <li class="contact-item"><i class="icon-mail"></i> hello@indiamedcare.com</li>
+                    <li class="contact-item"><i class="icon-map-pin"></i> Lagos, Nigeria</li>
+                    <li class="contact-item"><i class="icon-clock"></i> Mon-Sat, 9am - 7pm</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <div class="copyright">&copy; 2025 IndiaMedCare. All rights reserved.</div>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="icon-arrow-up"></i></button>
+
+    <script src="app.js" defer></script>
+    <script src="account-auth.js" defer></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var SUPABASE_URL = 'https://oalshkwaqaljcaqrsoqi.supabase.co';
+        var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9hbHNoa3dhcWFsamNhcXJzb3FpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM4MDczOTQsImV4cCI6MjEwOTM4MzM5NH0.4nivGmE8NWLIlUmORYiISAV6RSs0RK3x_Ddxgawvbz4';
+        var supabase = null;
+        try { supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY); } catch(e) {}
+
+        function escapeHtml(t) { if (!t) return ''; var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+
+        // Mobile Nav
+        var mobileToggle = document.getElementById('mobileToggle');
+        var mobileNav = document.getElementById('mobileNav');
+        var navOverlay = document.getElementById('navOverlay');
+        var closeNavBtn = document.getElementById('closeNavBtn');
+        function openNav() { mobileNav.classList.add('active'); navOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeNav() { mobileNav.classList.remove('active'); navOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+        if (mobileToggle) mobileToggle.addEventListener('click', openNav);
+        if (closeNavBtn) closeNavBtn.addEventListener('click', closeNav);
+        if (navOverlay) navOverlay.addEventListener('click', closeNav);
+
+        // Search
+        var searchToggle = document.getElementById('searchToggle');
+        var searchOverlay = document.getElementById('searchOverlay');
+        var searchClose = document.getElementById('searchClose');
+        var searchInput = document.getElementById('searchInput');
+        var searchResultsContainer = document.getElementById('searchResultsContainer');
+        var searchDebounceTimer = null, searchCache = {};
+        function openSearch() { searchOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; setTimeout(function() { searchInput.focus(); }, 100); }
+        function closeSearch() { searchOverlay.classList.remove('active'); document.body.style.overflow = ''; searchInput.value = ''; if (searchResultsContainer) searchResultsContainer.innerHTML = ''; }
+        if (searchToggle) searchToggle.addEventListener('click', openSearch);
+        if (searchClose) searchClose.addEventListener('click', closeSearch);
+        if (searchOverlay) searchOverlay.addEventListener('click', function(e) { if (e.target === searchOverlay) closeSearch(); });
+
+        function highlightMatch(text, query) { if (!query) return escapeHtml(text); var escaped = escapeHtml(text); var regex = new RegExp('(' + query.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + ')', 'gi'); return escaped.replace(regex, '<mark>$1</mark>'); }
+
+        async function performSearch(query) {
+            if (!searchResultsContainer) return;
+            if (!query || query.length < 2) { searchResultsContainer.innerHTML = ''; return; }
+            if (searchCache[query.toLowerCase()]) { renderSearchResults(searchCache[query.toLowerCase()], query); return; }
+            searchResultsContainer.innerHTML = '<div class="search-status"><i class="icon-loader" style="animation:spin 1s linear infinite;display:inline-block"></i> Searching...</div>';
+            try {
+                var sb = supabase || (window.IndiaMedCare && window.IndiaMedCare.getSupabaseClient ? window.IndiaMedCare.getSupabaseClient() : null);
+                if (!sb) { searchResultsContainer.innerHTML = '<div class="search-empty"><i class="icon-alert-circle"></i><p>Search unavailable</p></div>'; return; }
+                var terms = query.toLowerCase().split(/\\s+/).filter(function(t) { return t.length > 0; });
+                var { data: products, error } = await sb.from('products').select('id, name, slug, price, image_url, description, category_id, is_active, categories(name, slug)').eq('is_active', true).order('name');
+                if (error) throw error;
+                var results = (products || []).filter(function(p) {
+                    var searchable = [(p.name || '').toLowerCase(), (p.slug || '').toLowerCase(), (p.description || '').toLowerCase(), (p.categories && p.categories.name ? p.categories.name.toLowerCase() : ''), (p.categories && p.categories.slug ? p.categories.slug.toLowerCase() : '')].join(' ');
+                    return terms.every(function(term) { return searchable.indexOf(term) !== -1; });
+                });
+                searchCache[query.toLowerCase()] = results;
+                renderSearchResults(results, query);
+            } catch(err) { searchResultsContainer.innerHTML = '<div class="search-empty"><i class="icon-alert-circle"></i><p>Search unavailable</p></div>'; }
+        }
+        function renderSearchResults(results, query) {
+            if (!searchResultsContainer) return;
+            if (results.length === 0) { searchResultsContainer.innerHTML = '<div class="search-empty"><i class="icon-search"></i><p>No products found for "' + escapeHtml(query) + '"</p></div>'; return; }
+            var html = '<div class="search-status">' + results.length + ' product' + (results.length !== 1 ? 's' : '') + ' found</div><div class="search-results-grid">';
+            results.slice(0, 20).forEach(function(p) {
+                var catName = p.categories && p.categories.name ? p.categories.name : '';
+                var imgUrl = p.image_url ? (p.image_url.startsWith('http') ? p.image_url : 'https://ebuzome.github.io/ZETRA/assets/images/' + p.image_url) : 'https://via.placeholder.com/400x400?text=IndiaMedCare';
+                html += '<a href="product.html?slug=' + encodeURIComponent(p.slug || p.id) + '" class="search-result-item"><img class="search-result-img" src="' + imgUrl + '" alt="' + escapeHtml(p.name) + '" loading="lazy"><div class="search-result-info">' + (catName ? '<span class="search-result-category">' + escapeHtml(catName) + '</span>' : '') + '<div class="search-result-name">' + highlightMatch(p.name || '', query) + '</div><div class="search-result-price">$' + (p.price || 0).toLocaleString() + '</div></div></a>';
+            });
+            html += '</div>';
+            searchResultsContainer.innerHTML = html;
+        }
+        if (searchInput) {
+            searchInput.addEventListener('input', function() { var q = searchInput.value.trim(); clearTimeout(searchDebounceTimer); searchDebounceTimer = setTimeout(function() { performSearch(q); }, 300); });
+            searchInput.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeSearch(); });
+        }
+
+        // Nav shrink
+        var navBar = document.getElementById('navBar');
+        window.addEventListener('scroll', function() { if ((window.scrollY || window.pageYOffset) > 80) navBar.classList.add('shrunk'); else navBar.classList.remove('shrunk'); }, { passive: true });
+
+        // Cart count
+        function updateCartCount() {
+            var cart = JSON.parse(localStorage.getItem('zetra_cart')) || [];
+            var total = cart.reduce(function(s,i){ return s + i.quantity; }, 0);
+            var el = document.getElementById('cartCount');
+            if (el) { el.textContent = total; el.style.display = total > 0 ? 'flex' : 'none'; }
+        }
+        updateCartCount();
+
+        // Back to top
+        var backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() { if ((window.scrollY || window.pageYOffset) > 500) backToTop.classList.add('visible'); else backToTop.classList.remove('visible'); }, { passive: true });
+        if (backToTop) backToTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+        // Scroll reveal
+        var reveals = document.querySelectorAll('.reveal');
+        var revealObserver = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } }); }, { threshold: 0.1 });
+        reveals.forEach(function(el) { revealObserver.observe(el); });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-item').forEach(function(item) {
+            item.addEventListener('click', function() {
+                this.classList.toggle('open');
+            });
+        });
+
+        // Contact form handling
+        var contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                var isValid = true;
+
+                // Validate fields
+                var name = document.getElementById('contactName').value.trim();
+                var email = document.getElementById('contactEmail').value.trim();
+                var subject = document.getElementById('contactSubject').value;
+                var message = document.getElementById('contactMessage').value.trim();
+
+                document.getElementById('nameError').style.display = name ? 'none' : 'block';
+                if (!name) isValid = false;
+
+                var emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+                document.getElementById('emailError').style.display = emailRegex.test(email) ? 'none' : 'block';
+                if (!emailRegex.test(email)) isValid = false;
+
+                document.getElementById('subjectError').style.display = subject ? 'none' : 'block';
+                if (!subject) isValid = false;
+
+                document.getElementById('messageError').style.display = message ? 'none' : 'block';
+                if (!message) isValid = false;
+
+                if (!isValid) return;
+
+                var submitBtn = document.getElementById('contactSubmitBtn');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="icon-loader" style="animation:spin 1s linear infinite"></i> Sending...';
+
+                try {
+                    if (supabase) {
+                        // Store in Supabase contact_submissions table
+                        var phone = document.getElementById('contactPhone').value.trim();
+                        var { error } = await supabase
+                            .from('contact_submissions')
+                            .insert({
+                                name: name,
+                                email: email,
+                                phone: phone || null,
+                                subject: subject,
+                                message: message,
+                                created_at: new Date().toISOString()
+                            });
+                        if (error) console.error('Supabase insert error:', error);
+                    } else {
+                        // Fallback: log to console
+                        console.log('Contact form submission (no Supabase):', { name, email, subject, message });
+                    }
+
+                    // Show success
+                    document.getElementById('formSuccess').style.display = 'block';
+                    contactForm.style.display = 'none';
+                } catch(err) {
+                    console.error('Contact form error:', err);
+                    var errMsg = document.createElement('div');
+                    errMsg.style.cssText = 'background:#fef2f2;border:1px solid #ef4444;border-radius:12px;padding:12px 16px;color:#991b1b;font-size:0.85rem;margin-top:12px;text-align:center;';
+                    errMsg.textContent = 'Failed to send message. Please try again or email us directly.';
+                    contactForm.appendChild(errMsg);
+                    setTimeout(function() { errMsg.remove(); }, 5000);
+                } finally {
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        // ESC handler
+        document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeNav(); closeSearch(); } });
+    });
+    </script>
+
+<!-- ZETRA_THEME_JS -->
+<script src="theme.js" defer></script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6aeb0273f9eca33c2b2190af/1k6j0356b';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="64" viewBox="0 0 220 64" role="img" aria-label="IndiaMedCare - Health is Wealth">
+  <defs>
+    <linearGradient id="zetraGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0d97a"/>
+      <stop offset="55%" stop-color="#16A34A"/>
+      <stop offset="100%" stop-color="#15803D"/>
+    </linearGradient>
+  </defs>
+  <!-- Pharmacy cross badge -->
+  <g transform="translate(4,12)">
+    <rect x="0" y="0" width="40" height="40" rx="12" fill="url(#zetraGold)"/>
+    <path d="M17 8h6v9h9v6h-9v9h-6v-9H8v-6h9z" fill="#0c0f15"/>
+  </g>
+  <text x="56" y="42" font-family="Georgia, 'Playfair Display', 'Times New Roman', serif" font-size="19.5" font-weight="700" letter-spacing="0.6" fill="url(#zetraGold)">IndiaMedCare</text>
+  <text x="58" y="57" font-family="Arial, Helvetica, sans-serif" font-size="8.5" letter-spacing="2.6" fill="#e8e6e2">HEALTH IS WEALTH</text>
+</svg>

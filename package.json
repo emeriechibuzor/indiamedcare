@@ -1,0 +1,10 @@
+{
+  "name": "indiamedcare",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IndiaMedCare — Health is Wealth (pharmaceutical e-commerce, static site on Supabase)",
+  "scripts": {
+    "dev": "npx serve . -l 3000",
+    "deploy": "vercel --prod"
+  }
+}

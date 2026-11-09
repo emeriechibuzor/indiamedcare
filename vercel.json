@@ -1,0 +1,32 @@
+{
+  "framework": null,
+  "installCommand": "echo skipping-install-for-static-site",
+  "buildCommand": "echo skipping-build-for-static-site",
+  "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate, max-age=0" }
+      ]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate, max-age=0" }
+      ]
+    },
+    {
+      "source": "/(.*).js",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, must-revalidate, max-age=0" }
+      ]
+    },
+    {
+      "source": "/(.*).css",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, must-revalidate, max-age=0" }
+      ]
+    }
+  ]
+}

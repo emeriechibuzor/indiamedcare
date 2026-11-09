@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf8f5"/>
+      <stop offset="100%" stop-color="#efeadf"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#bg)"/>
+  <g transform="translate(255,205)">
+    <rect x="0" y="0" width="90" height="90" rx="20" fill="#d4af37" opacity="0.35"/>
+    <path d="M39 18h12v21h21v12H51v21H39V51H18V39h21z" fill="#b8860b"/>
+  </g>
+  <text x="300" y="360" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" letter-spacing="4" fill="#6b7280" font-weight="600">IndiaMedCare</text>
+  <text x="300" y="392" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#9ca3af">Product image coming soon</text>
+</svg>
