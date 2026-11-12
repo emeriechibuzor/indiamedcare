@@ -21,7 +21,7 @@ const REMOVED = ['mensfootwear', 'womensfootwear', 'bags', 'accessories', 'house
 const REPLACEMENTS = [
   // Specific strings first
   ['hello@jmpotters.com', 'hello@zetrahealth.com'],
-  ['+234 813 958 3320', '+234 800 000 0000'],
+  ['+234 813 958 3320', '+1 581 705 5013'],
   ['2348139583320', '2348000000000'],
   ['jmpotters_user', 'zetra_user'],
   ['Premium Fashion & Lifestyle', 'Healthcare & Wellness'],

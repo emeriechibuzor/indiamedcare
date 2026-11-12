@@ -69,5 +69,5 @@ npx vercel --prod --token <YOUR_TOKEN>
 
 ## Schedule / contact placeholders
 
-Contact details are placeholders: `hello@indiamedcare.com`, `+234 800 000 0000`.
+Contact details are placeholders: `mail@indiamedcare.com`, `+1 581 705 5013`.
 Update them in the footer/contact page before the client launch.
